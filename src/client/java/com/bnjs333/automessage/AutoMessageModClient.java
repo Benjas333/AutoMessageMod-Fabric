@@ -98,6 +98,7 @@ public class AutoMessageModClient implements ClientModInitializer {
 		if (!config.enabled) return;
 		if (config.message.isEmpty()) return;
 
+        assert MinecraftClient.getInstance().player != null;
         MinecraftClient.getInstance().player.sendMessage(Text.of(config.message));
 	}
 
