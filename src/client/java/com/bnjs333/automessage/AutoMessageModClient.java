@@ -27,52 +27,50 @@ public class AutoMessageModClient implements ClientModInitializer {
             sendAutoMessage();
 		});
 
-		ClientCommandRegistrationCallback.EVENT.register((commandDispatcher, commandRegistryAccess) -> {
-			commandDispatcher.register(ClientCommandManager.literal("automessage")
-				.executes(context -> {
-					context.getSource().sendFeedback(configString());
-					return 1;
-				})
-				.then(ClientCommandManager.literal("on")
-					.executes(context -> {
-						setModState(true);
-						context.getSource().sendFeedback(Text.translatable("command.automessage.feedback.on"));
-						return 1;
-					})
-				)
-				.then(ClientCommandManager.literal("off")
-					.executes(context -> {
-						setModState(false);
-						context.getSource().sendFeedback(Text.translatable("command.automessage.feedback.off"));
-						return 1;
-					})
-				)
-				.then(ClientCommandManager.literal("toggle")
-					.executes(context -> {
-						toggleModState();
-						context.getSource().sendFeedback(Text.translatable("command.automessage.feedback.toggle"));
-						return 1;
-					})
-				)
-				.then(ClientCommandManager.literal("reload")
-					.executes(context -> {
-						checkConfigReload();
-						context.getSource().sendFeedback(Text.translatable("command.automessage.feedback.reload"));
-						return 1;
-					})
-				)
-				.then(ClientCommandManager.literal("set")
-					.then(ClientCommandManager.argument("message", StringArgumentType.greedyString())
-						.executes(context -> {
-							String message = context.getArgument("message", String.class);
-							setConfigMessage(message);
-							context.getSource().sendFeedback(Text.translatable("command.automessage.feedback.message.set", message));
-							return 1;
-						})
-					)
-				)
-			);
-		});
+		ClientCommandRegistrationCallback.EVENT.register((commandDispatcher, commandRegistryAccess) -> commandDispatcher.register(ClientCommandManager.literal("automessage")
+            .executes(context -> {
+                context.getSource().sendFeedback(configString());
+                return 1;
+            })
+            .then(ClientCommandManager.literal("on")
+                .executes(context -> {
+                    setModState(true);
+                    context.getSource().sendFeedback(Text.translatable("command.automessage.feedback.on"));
+                    return 1;
+                })
+            )
+            .then(ClientCommandManager.literal("off")
+                .executes(context -> {
+                    setModState(false);
+                    context.getSource().sendFeedback(Text.translatable("command.automessage.feedback.off"));
+                    return 1;
+                })
+            )
+            .then(ClientCommandManager.literal("toggle")
+                .executes(context -> {
+                    toggleModState();
+                    context.getSource().sendFeedback(Text.translatable("command.automessage.feedback.toggle"));
+                    return 1;
+                })
+            )
+            .then(ClientCommandManager.literal("reload")
+                .executes(context -> {
+                    checkConfigReload();
+                    context.getSource().sendFeedback(Text.translatable("command.automessage.feedback.reload"));
+                    return 1;
+                })
+            )
+            .then(ClientCommandManager.literal("set")
+                .then(ClientCommandManager.argument("message", StringArgumentType.greedyString())
+                    .executes(context -> {
+                        String message = context.getArgument("message", String.class);
+                        setConfigMessage(message);
+                        context.getSource().sendFeedback(Text.translatable("command.automessage.feedback.message.set", message));
+                        return 1;
+                    })
+                )
+            )
+        ));
 	}
 
 	private void setConfigMessage(String message) {
