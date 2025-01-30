@@ -1,0 +1,13 @@
+{
+  "text.autoconfig.automessage.title": "Configuración de Auto Message Mod",
+  "text.autoconfig.automessage.option.enabled": "Está activado?",
+  "text.autoconfig.automessage.option.message": "Mensaje para mandar",
+  "generic.automessage.enabled": "Activado",
+  "generic.automessage.disabled": "Desactivado",
+  "text.automessage.config.string": "Configuración de Auto Message:\n Estado: %1$s\n Mensaje: %2$s",
+  "command.automessage.feedback.on": "Activado Auto Message!",
+  "command.automessage.feedback.off": "Desactivado Auto Message!",
+  "command.automessage.feedback.toggle": "Alternado el estado de Auto Message!",
+  "command.automessage.feedback.reload": "Recargada la config de Auto Message!",
+  "command.automessage.feedback.message.set": "Auto Message cambiado a: %1$s"
+}

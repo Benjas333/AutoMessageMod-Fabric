@@ -1,0 +1,48 @@
+{
+	"schemaVersion": 1,
+	"id": "automessage",
+	"version": "${version}",
+	"name": "Auto Message Mod",
+	"description": "Send a message automatically to the server when joining!",
+	"authors": [
+		"Benjas333"
+	],
+	"contact": {
+		"homepage": "https://x.com/ElBenjas333",
+		"sources": "https://github.com/Benjas333/auto-message-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/automessage/icon.png",
+	"environment": "client",
+	"entrypoints": {
+		"main": [
+			"com.bnjs333.automessage.AutoMessageMod"
+		],
+		"client": [
+			"com.bnjs333.automessage.AutoMessageModClient"
+		],
+		"fabric-datagen": [
+			"com.bnjs333.automessage.AutoMessageModDataGenerator"
+		],
+		"modmenu": [
+			"com.bnjs333.automessage.ModMenuIntegration"
+		]
+	},
+	"mixins": [
+		"automessage.mixins.json",
+		{
+			"config": "automessage.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.16.10",
+		"minecraft": "~1.19.4",
+		"java": ">=17",
+		"fabric-api": "*",
+		"cloth-config": ">=10.1.135"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
